@@ -16,7 +16,6 @@ class AppDataManager {
 	static let sharedInstance = AppDataManager()
 
 	weak var delegate: AppDataManagerDelegate?
-
 	private (set) var app: AICAppDataModel! = nil
 	private (set) var exhibitions: [AICExhibitionModel] = []
 	private (set) var events: [AICEventModel] = []
@@ -34,60 +33,9 @@ class AppDataManager {
 	private var loadFailure = false
 
 	func load(forceAppDataDownload: Bool = false) {
-		var downloadDataEvenIfCached: Bool = forceAppDataDownload
-
-		// Save software version number
-		if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
-
-			// Force AppData download if the last software version is older
-			if downloadDataEvenIfCached == false {
-				if let lastVersion = UserDefaults.standard.object(forKey: Common.UserDefaults.lastVersionNumberKey) as? String {
-					if version.compare(lastVersion, options: .numeric) == .orderedDescending {
-						downloadDataEvenIfCached = true
-					}
-				} else {
-					downloadDataEvenIfCached = true
-				}
-			}
-
-			UserDefaults.standard.set(version, forKey: Common.UserDefaults.lastVersionNumberKey)
-		}
-
-		if let url = Bundle.main.url(forResource: "Config", withExtension: "plist") {
-			do {
-				let data = try Data(contentsOf: url)
-				guard let config = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
-					return
-				}
-
-				if let testing = config["Testing"] as! [String: Any]? {
-
-					if let printDataErrors = testing["printDataErrors"] {
-						Common.Testing.printDataErrors = printDataErrors as! Bool
-					}
-
-				}
-
-				if let dataConstants = config["DataConstants"] as! [String: Any]? {
-
-					if let appDataJSON = dataConstants["appDataJSON"] {
-						Common.Constants.appDataJSON = appDataJSON as! String
-					}
-
-					if let memberCardSOAPRequestURL = dataConstants["memberCardSOAPRequestURL"] as? String {
-						Common.Constants.memberCardSOAPRequestURL = memberCardSOAPRequestURL
-					}
-
-					if let ignoreOverrideImageCrop = dataConstants["ignoreOverrideImageCrop"] {
-						Common.Constants.ignoreOverrideImageCrop = ignoreOverrideImageCrop as! Bool
-					}
-
-				}
-
-			} catch {
-				debugPrint(error)
-			}
-		}
+        var downloadDataEvenIfCached = forceAppDataDownload
+        validateAppVersionNumber(&downloadDataEvenIfCached)
+        loadCommonConfigurations()
 
 		loadFailure = false
 		dataFilesRetrieved = 0
@@ -95,8 +43,10 @@ class AppDataManager {
 		appData = nil
 		mapFloorURLs = [:]
 		numberMapFloorsLoaded = 0
-		lastModifiedStringsMatch(atURL: Common.Constants.appDataJSON,
-                             userDefaultsLastModifiedKey: Common.UserDefaults.onDiskAppDataLastModifiedStringKey) { stringsMatch in
+        lastModifiedStringsMatch(
+            atURL: Common.Constants.appDataJSON,
+            userDefaultsLastModifiedKey: Common.UserDefaults.onDiskAppDataLastModifiedStringKey
+        ) { stringsMatch in
 			if !stringsMatch || downloadDataEvenIfCached {
 				//Try to download new app data
 				//If there is an issue with the server or reachability
@@ -111,9 +61,37 @@ class AppDataManager {
 				//We have good cached app data, continue on
 				self.loadAppData()
 			}
-
 		}
 	}
+
+    private func validateAppVersionNumber(_ downloadDataEvenIfCached: inout Bool) {
+        let currentVersion = Bundle.versionNumber
+        // Force AppData download if the last software version is older
+        if !downloadDataEvenIfCached {
+            if let lastVersion = UserDefaults.standard.object(forKey: Common.UserDefaults.lastVersionNumberKey) as? String {
+                if currentVersion.compare(lastVersion, options: .numeric) == .orderedDescending {
+                    downloadDataEvenIfCached = true
+                }
+            } else {
+                downloadDataEvenIfCached = true
+            }
+        }
+        UserDefaults.standard.set(currentVersion, forKey: Common.UserDefaults.lastVersionNumberKey)
+    }
+
+    private func loadCommonConfigurations() {
+        let accessor = CommonConfigurationAccessor()
+        Common.Testing.printDataErrors = accessor.shouldPrintDataErrors()
+        Common.Constants.ignoreOverrideImageCrop = accessor.shouldIgnoreOverrideImageCrop()
+
+        if let appDataURL = accessor.appDataURL() {
+            Common.Constants.appDataJSON = appDataURL
+        }
+
+        if let memberCardSOAPRequestURL = accessor.memberCardSOAPRequestURL() {
+            Common.Constants.memberCardSOAPRequestURL = memberCardSOAPRequestURL
+        }
+    }
 
 	// MARK: Download App Data
 
@@ -150,7 +128,7 @@ class AppDataManager {
 		if let appData = self.appData {
 			// We have good app data, continue on
 			updateDownloadProgress()
-			downloadMapFloorsPdfs(appData: appData)
+			downloadMapFloorsPDFs(appData: appData)
 
 			fetchMemberCard()
 		} else {
@@ -159,9 +137,9 @@ class AppDataManager {
 		}
 	}
 
-	// MARK: Download Map Floors Pdfs
+	// MARK: Download Map Floors PDFs
 
-	private func downloadMapFloorsPdfs(appData: Data) {
+	private func downloadMapFloorsPDFs(appData: Data) {
 		// URLs to download Floor Pdfs
 		let floorsURLs = dataParser.parseMapFloorsURLs(fromAppData: appData)
 

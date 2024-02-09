@@ -46,19 +46,21 @@ class AppDataParser {
 		// TODO: Proper error handling for SwiftyJSON
 		let appDataJson = try! JSON(data: data)
 
-		let generalInfo 		= parse(generalInfoJSON: appDataJson["general_info"])
-		self.galleries			= parse(galleriesJSON: appDataJson["galleries"])
-		self.audioFiles 		= parse(audioFilesJSON: appDataJson["audio_files"])
-		self.objects 			= parse(objectsJSON: appDataJson["objects"])
-		self.exhibitionsInCMS	= parse(exhibitionsInCMSJSON: appDataJson["exhibitions"])
-		self.tourCategories 	= parse(tourCategoriesJSON: appDataJson["tour_categories"])
-		let tours 				= parse(toursJSON: appDataJson["tours"])
-		let dataSettings 		= parse(dataSettingsJSON: appDataJson["data"])
-		let searchStrings 		= parse(searchStringsJSON: appDataJson["search"]["search_strings"])
-		self.searchArtworks 	= parse(searchArtworks: appDataJson["search"])
-		let map 				= parse(mapFloorsJSON: appDataJson["map_floors"],
-										mapAnnotationsJSON: appDataJson["map_annontations"])
-		let messages            = parse(messagesJSON: appDataJson["messages"])
+		let generalInfo  = parse(generalInfoJSON: appDataJson["general_info"])
+		self.galleries = parse(galleriesJSON: appDataJson["galleries"])
+		self.audioFiles = parse(audioFilesJSON: appDataJson["audio_files"])
+		self.objects = parse(objectsJSON: appDataJson["objects"])
+		self.exhibitionsInCMS = parse(exhibitionsInCMSJSON: appDataJson["exhibitions"])
+		self.tourCategories = parse(tourCategoriesJSON: appDataJson["tour_categories"])
+		let tours = parse(toursJSON: appDataJson["tours"])
+		let dataSettings = parse(dataSettingsJSON: appDataJson["data"])
+		let searchStrings = parse(searchStringsJSON: appDataJson["search"]["search_strings"])
+		self.searchArtworks = parse(searchArtworks: appDataJson["search"])
+        let map = parse(
+            mapFloorsJSON: appDataJson["map_floors"],
+            mapAnnotationsJSON: appDataJson["map_annontations"]
+        )
+		let messages = parse(messagesJSON: appDataJson["messages"])
 
 		let appData = AICAppDataModel(
 			generalInfo: generalInfo,
@@ -442,13 +444,11 @@ class AppDataParser {
 	}
 
 	fileprivate func parse(tourJSON: JSON) throws -> AICTourModel {
-		let nid                 = try getInt(fromJSON: tourJSON, forKey: "nid")
-		let imageUrl: URL       = try getURL(fromJSON: tourJSON, forKey: "image_url")!
-
-		let audioFileID         = try getInt(fromJSON: tourJSON, forKey: "tour_audio")
-		let audioFile           = try getAudioFile(forNID: audioFileID)
-
-		let order 				= try getInt(fromJSON: tourJSON, forKey: "weight")
+		let nid = try getInt(fromJSON: tourJSON, forKey: "nid")
+		let imageUrl: URL = try getURL(fromJSON: tourJSON, forKey: "image_url")!
+		let audioFileID = try getInt(fromJSON: tourJSON, forKey: "tour_audio")
+		let audioFile = try getAudioFile(forNID: audioFileID)
+		let order = try getInt(fromJSON: tourJSON, forKey: "weight")
 
 		// Selector number (optional)
 		var selectorNumber: Int?
@@ -480,28 +480,29 @@ class AppDataParser {
 		for stopData in stopsData {
 			do {
 				try handleParseError({
-					let order       = try self.getInt(fromJSON: stopData, forKey: "sort")
+					let order = try self.getInt(fromJSON: stopData, forKey: "sort")
 
-					let objectID    = try self.getInt(fromJSON: stopData, forKey: "object")
-					let object      = try self.getObject(forNID: objectID)
+					let objectID = try self.getInt(fromJSON: stopData, forKey: "object")
+					let object = try self.getObject(forNID: objectID)
 
 					let audioFileID = try self.getInt(fromJSON: stopData, forKey: "audio_id")
-					let audioFile   = try self.getAudioFile(forNID: audioFileID)
+					let audioFile = try self.getAudioFile(forNID: audioFileID)
 
 					// Selector number is optional
 					var audioBumper: AICAudioFileModel?
 					do {
-						let audioBumperID	= try getInt(fromJSON: stopData, forKey: "audio_bumper")
-						audioBumper			= try self.getAudioFile(forNID: audioBumperID)
+						let audioBumperID = try getInt(fromJSON: stopData, forKey: "audio_bumper")
+						audioBumper = try self.getAudioFile(forNID: audioBumperID)
 					} catch {
 						audioBumper = nil
 					}
 
-					let stop = AICTourStopModel(order: order,
-												object: object,
-												audio: audioFile,
-												audioBumper: audioBumper
-					)
+                    let stop = AICTourStopModel(
+                        order: order,
+                        object: object,
+                        audio: audioFile,
+                        audioBumper: audioBumper
+                    )
 
 					stops.append(stop)
 				})
@@ -586,7 +587,8 @@ class AppDataParser {
 			let mapFloorsJSON = appDataJSON["map_floors"]
 
 			for floorNumber in 0..<Common.Map.totalFloors {
-				let mapFloorJSON = mapFloorsJSON["map_floor\(floorNumber)"]
+                let mapFloorKey = floorNumber == 0 ? "map_floorLL" : "map_floor\(floorNumber)"
+				let mapFloorJSON = mapFloorsJSON[mapFloorKey]
 				let floorPdfURL: URL = try getURL(fromJSON: mapFloorJSON, forKey: "floor_plan")!
 				result.append(floorPdfURL)
 			}
@@ -609,7 +611,8 @@ class AppDataParser {
 
 			// Floors
 			for floorNumber in 0..<Common.Map.totalFloors {
-				let mapFloorJSON = mapFloorsJSON["map_floor\(floorNumber)"]
+                let mapFloorKey = floorNumber == 0 ? "map_floorLL" : "map_floor\(floorNumber)"
+				let mapFloorJSON = mapFloorsJSON[mapFloorKey]
 
 				let floorPdfURL: URL = AppDataManager.sharedInstance.mapFloorURLs[floorNumber]!
 				let anchorPixel1 = try getPoint(fromJSON: mapFloorJSON, forKey: "anchor_pixel_1")
@@ -688,10 +691,6 @@ class AppDataParser {
 						let departmentAnnotation = try parse(departmentAnnotationJSON: annotationJSON)
 						floorDepartmentAnnotations[floorNumber!]!.append(departmentAnnotation)
 					}
-					//					else if type == "Image" {
-					//						let imageAnnotation = try parse(imageAnnotationJSON: annotationJSON)
-					//						imageAnnotations.append(imageAnnotation)
-					//					}
 
 					// Restaurant Model
 					if type == "Amenity" && floorNumber != nil {
@@ -721,7 +720,7 @@ class AppDataParser {
 				// first add all artworks from the search
 				for artwork in self.searchArtworks {
 					if artwork.location.floor == floorNumber {
-						if let objectAnnotation = floorObjectAnnotations[floorNumber]!.filter({ $0.nid == artwork.nid }).first as MapObjectAnnotation? {
+						if let objectAnnotation = floorObjectAnnotations[floorNumber]?.filter({ $0.nid == artwork.nid }).first as? MapObjectAnnotation {
 							floorFarObjectAnnotations[floorNumber]!.append(objectAnnotation)
 						}
 					}
@@ -729,14 +728,24 @@ class AppDataParser {
 			}
 
 			// Lions
-			let lion1 = MapImageAnnotation(coordinate: CLLocationCoordinate2DMake(41.879678006591391, -87.624091248446064), image: #imageLiteral(resourceName: "Lion1"), identifier: "Lion1")
-			let lion2 = MapImageAnnotation(coordinate: CLLocationCoordinate2DMake(41.879491568164525, -87.624089977901931), image: #imageLiteral(resourceName: "Lion2"), identifier: "Lion2")
-			imageAnnotations.append(lion1)
-			imageAnnotations.append(lion2)
+
+            let leftLion = MapImageAnnotation(
+                coordinate: Common.EntranceLionStatue.left.coordinate,
+                image: UIImage(named: Common.EntranceLionStatue.left.imageName)!,
+                identifier: Common.EntranceLionStatue.left.identifier
+            )
+            let rightLion = MapImageAnnotation(
+                coordinate: Common.EntranceLionStatue.right.coordinate,
+                image: UIImage(named: Common.EntranceLionStatue.right.imageName)!,
+                identifier: Common.EntranceLionStatue.right.identifier
+            )
+			imageAnnotations.append(leftLion)
+			imageAnnotations.append(rightLion)
 
 			var floors: [AICMapFloorModel] = []
 			for floorNumber in 0..<Common.Map.totalFloors {
-				let floor = AICMapFloorModel(floorNumber: floorNumber,
+                let floor = AICMapFloorModel(
+                    floorNumber: floorNumber,
 											 overlay: floorOverlays[floorNumber],
 											 objects: floorObjectAnnotations[floorNumber]!,
 											 farObjects: floorFarObjectAnnotations[floorNumber]!,
@@ -748,20 +757,24 @@ class AppDataParser {
 				floors.append(floor)
 			}
 
-			return AICMapModel(imageAnnotations: imageAnnotations,
-							   landmarkAnnotations: landmarkAnnotations,
-							   gardenAnnotations: gardenAnnotations,
-							   floors: floors)
+            return AICMapModel(
+                imageAnnotations: imageAnnotations,
+                landmarkAnnotations: landmarkAnnotations,
+                gardenAnnotations: gardenAnnotations,
+                floors: floors
+            )
 		} catch {
 			if Common.Testing.printDataErrors {
 				debugPrint("Could not parse AIC Map\n")
 			}
 		}
 
-		return AICMapModel(imageAnnotations: [MapImageAnnotation](),
-						   landmarkAnnotations: [MapTextAnnotation](),
-						   gardenAnnotations: [MapTextAnnotation](),
-						   floors: [AICMapFloorModel]())
+        return AICMapModel(
+            imageAnnotations: [MapImageAnnotation](),
+            landmarkAnnotations: [MapTextAnnotation](),
+            gardenAnnotations: [MapTextAnnotation](),
+            floors: [AICMapFloorModel]()
+        )
 	}
 
 	// Gallery annotations

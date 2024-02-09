@@ -150,6 +150,9 @@
 		3099149B23A8385E00E32ACE /* InfoBuyTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099149A23A8385E00E32ACE /* InfoBuyTicketsView.swift */; };
 		E20B1C0829D525A90095E59C /* MapPointOfInterestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B1C0729D525A90095E59C /* MapPointOfInterestType.swift */; };
 		E218869429C0036F00803FF9 /* UIApplication+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218869329C0036F00803FF9 /* UIApplication+KeyWindow.swift */; };
+		E260C3B02B751728004911C4 /* Bundle+ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */; };
+		E260C3B32B751D16004911C4 /* PlistFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3B22B751D16004911C4 /* PlistFileLoader.swift */; };
+		E260C3B52B762B74004911C4 /* CommonConfigurationAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3B42B762B74004911C4 /* CommonConfigurationAccessor.swift */; };
 		E274012C2B70DF8B00CA4C71 /* LAContext+BiometryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274012B2B70DF8B00CA4C71 /* LAContext+BiometryType.swift */; };
 		E276C4012AC5909B007A5917 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E276C4002AC5909B007A5917 /* PureLayout */; };
 		E28F3AFA29B96E6A00C03BFD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3AF929B96E6A00C03BFD /* FirebaseAnalytics */; };
@@ -416,6 +419,9 @@
 		3099149A23A8385E00E32ACE /* InfoBuyTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuyTicketsView.swift; sourceTree = "<group>"; };
 		E20B1C0729D525A90095E59C /* MapPointOfInterestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointOfInterestType.swift; sourceTree = "<group>"; };
 		E218869329C0036F00803FF9 /* UIApplication+KeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+KeyWindow.swift"; sourceTree = "<group>"; };
+		E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ApplicationInfo.swift"; sourceTree = "<group>"; };
+		E260C3B22B751D16004911C4 /* PlistFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistFileLoader.swift; sourceTree = "<group>"; };
+		E260C3B42B762B74004911C4 /* CommonConfigurationAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConfigurationAccessor.swift; sourceTree = "<group>"; };
 		E274012B2B70DF8B00CA4C71 /* LAContext+BiometryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LAContext+BiometryType.swift"; sourceTree = "<group>"; };
 		E2C72F0729C3EFA30021F1EC /* UIViewController+ChildTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildTransition.swift"; sourceTree = "<group>"; };
 		E2C72F0929C3FBB20021F1EC /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
@@ -876,8 +882,17 @@
 				E4875B421CE8DBC1000F0E6E /* UIImage+AIC.swift */,
 				E421782F1CC57BE200815B41 /* UITextView+AIC.swift */,
 				E2C72F0729C3EFA30021F1EC /* UIViewController+ChildTransition.swift */,
+				E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E260C3B12B751D01004911C4 /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E260C3B22B751D16004911C4 /* PlistFileLoader.swift */,
+			);
+			path = DataLoader;
 			sourceTree = "<group>";
 		};
 		E40D41C01C6CEBB700A57AF4 = {
@@ -944,6 +959,7 @@
 		E415AB9A1C7297E60093B719 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E260C3B12B751D01004911C4 /* DataLoader */,
 				E218869529C0037300803FF9 /* Extensions */,
 				28F7980D1E7B40E600D22E0E /* Common.swift */,
 				E4F519C61C87B2F200226188 /* Helpers.swift */,
@@ -952,6 +968,7 @@
 				E4F518FA1D2586B0004BFB44 /* AICImageView.swift */,
 				29DAF05E1FB3974F002ED862 /* LinkedTextView.swift */,
 				05A2B2FA21024A780059C123 /* UILabelPadding.swift */,
+				E260C3B42B762B74004911C4 /* CommonConfigurationAccessor.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1429,6 +1446,7 @@
 				2915B0F4202CA0BE00DEBB03 /* LanguageSelectorButton.swift in Sources */,
 				2941CE801FE09F6000B7CCEE /* SearchContentViewController.swift in Sources */,
 				294338521FDC849E00ECF321 /* SearchDataManager.swift in Sources */,
+				E260C3B32B751D16004911C4 /* PlistFileLoader.swift in Sources */,
 				E4BBB6771CA1A1FB00B8A37C /* BaseView.swift in Sources */,
 				29F261FF200FFACF0000BF05 /* ArtworkContentCell.swift in Sources */,
 				290A0FB62044D60F000CDA8F /* TooltipArrowView.swift in Sources */,
@@ -1442,8 +1460,10 @@
 				2975A053203F2E120014017C /* TooltipViewController.swift in Sources */,
 				29A67F872027D74B003C630A /* AudioInfoSectionView.swift in Sources */,
 				29D6921A1FE0E92000B61286 /* SeeAllExhibitionCell.swift in Sources */,
+				E260C3B02B751728004911C4 /* Bundle+ApplicationInfo.swift in Sources */,
 				294C0B5B201A76F700F2ABB1 /* FloorplanOverlayRenderer.swift in Sources */,
 				E415ABD51C7298420093B719 /* MiniAudioPlayerView.swift in Sources */,
+				E260C3B52B762B74004911C4 /* CommonConfigurationAccessor.swift in Sources */,
 				2986A58A1FBCBD8B00029E74 /* SectionNavigationController.swift in Sources */,
 				E42677E31CC558060046BB27 /* AICButton.swift in Sources */,
 				29E003ED204858F900E1D305 /* MapRestaurantContentView.swift in Sources */,
@@ -1778,7 +1798,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -1827,7 +1847,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -2022,7 +2042,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.5.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
