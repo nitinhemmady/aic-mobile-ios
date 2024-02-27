@@ -240,8 +240,8 @@ class AudioPlayerNavigationController: CardNavigationController {
 		currentAudioBumper = nil
 		if let audioBumper = nextTourStop.audioBumper {
 			if audioBumper.availableLanguages.contains(self.currentTourLanguage) {
-				currentAudioBumper = nextTourStop.audioBumper
-				currentAudioBumper!.language = self.currentTourLanguage
+				currentAudioBumper = audioBumper
+				currentAudioBumper?.language = self.currentTourLanguage
 			}
 		}
 	}
@@ -277,7 +277,7 @@ class AudioPlayerNavigationController: CardNavigationController {
 		// even if the player defaults to a language
 		// check to see if the user changed it
 		if selectedLanguage != nil {
-			currentAudioFile!.language = selectedLanguage!
+            currentAudioFile?.language = selectedLanguage!
 		}
 
 		// Clear out current player

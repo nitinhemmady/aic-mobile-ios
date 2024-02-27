@@ -129,9 +129,17 @@ class MemberCardViewController: UIViewController {
 		loadingIndicatorView.stopAnimating()
 		cardView.isHidden = false
 
-		// Log analytics
-		AICAnalytics.sendMemberCardShownEvent()
+        logAnalyticsMemberCardShownEvent()
 	}
+
+    private func logAnalyticsMemberCardShownEvent() {
+        AICAnalytics.sendMemberCardShownEvent(
+            property: AnalyticsProperty(
+                key: AnalyticsPropertyType.membership.key,
+                value: "Member"
+            )
+        )
+    }
 
 	// MARK: Load Member
 

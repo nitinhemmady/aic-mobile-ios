@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-		AICAnalytics.configure()
-
+        setupAnalytics()
 		// Set initial state for location tracking
         let locationManager = CLLocationManager()
 		Common.Location.hasLoggedOnsite = false
@@ -47,6 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		#endif
 		return true
 	}
+
+    private func setupAnalytics() {
+        AICAnalytics.configure(properties: [
+            AnalyticsProperty.make(by: .appLanguage),
+            AnalyticsProperty.make(by: .deviceLanguage),
+            AnalyticsProperty.make(by: .membership)
+        ])
+    }
 
 	func registerForAppRestartTomorrowMorning() {
 		guard let configDictionary = UserDefaults.standard.object(forKey: Common.UserDefaults.configurationDictionaryUserDefaultKey) as? NSDictionary else {

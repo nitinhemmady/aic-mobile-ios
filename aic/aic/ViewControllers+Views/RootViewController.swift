@@ -46,7 +46,7 @@ final class RootViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-    setup()
+        setup()
 	}
 
 	// If loading got stopped (backgrounding the app?)
@@ -117,7 +117,7 @@ extension RootViewController: LanguageSelectionViewControllerDelegate {
 		defaults.set(false, forKey: Common.UserDefaults.showLanguageSelectionUserDefaultsKey)
 		defaults.synchronize()
 
-    languageViewController.remove()
+        languageViewController.remove()
 		loadingViewController.playIntroVideo()
 	}
 

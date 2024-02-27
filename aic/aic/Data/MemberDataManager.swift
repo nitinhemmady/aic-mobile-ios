@@ -17,10 +17,8 @@ class MemberDataManager {
 
 	private (set) var currentMemberCard: AICMemberCardModel?
 	var currentMemberNameIndex: Int = 0
-
 	weak var delegate: MemberDataManagerDelegate?
-
-	private let dataParser = AppDataParser()
+//	private let dataParser = AppDataParser()
 
 	func validateMember(memberID: String, zipCode: String) {
 		//		var url = AppDataManager.sharedInstance.app.dataSettings[.dataApiUrl]!

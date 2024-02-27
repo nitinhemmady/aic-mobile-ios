@@ -7,8 +7,6 @@ which are associated with artworks and tours
 import Foundation
 
 struct AICGeneralInfoModel {
-	let nid: Int
-
 	var museumHours: String {
 		return translations[Common.currentLanguage]?.museumHours
 			?? translations[.english]?.museumHours

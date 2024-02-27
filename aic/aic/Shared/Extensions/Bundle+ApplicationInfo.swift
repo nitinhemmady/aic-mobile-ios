@@ -2,7 +2,6 @@
 //  Bundle+ApplicationInfo.swift
 //  aic
 //
-//  Created by Pawel Milek on 2/8/24.
 //  Copyright © 2024 Art Institute of Chicago. All rights reserved.
 //
 
@@ -28,5 +27,11 @@ extension Bundle {
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
         return build ?? "Unknown"
     }
+
+    static var identifier: String {
+        let bundleIdentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
+        return bundleIdentifier ?? "Unknown"
+    }
+
 
 }

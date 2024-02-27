@@ -7,8 +7,7 @@ currently using Google Analytics
 import FirebaseAnalytics
 import FirebaseCore
 
-class AICAnalytics {
-
+final class AICAnalytics {
 	fileprivate enum Event: String {
 		case appOpen = "app_open"
 		case languageFirstSelection	= "language_first_selection"
@@ -76,31 +75,19 @@ class AICAnalytics {
 		case MemberJoin = "MemberJoin"
 	}
 
-	fileprivate enum UserProperty: String {
-		case membership = "Membership"
-		case appLanguage = "Language"
-		case deviceLanguage = "DeviceLanguage"
-	}
-
 	static fileprivate let parameterMaxLength = 95
-
 	static fileprivate var previousScreen: String?
 	static fileprivate var currentScreen: String?
-	static fileprivate var lastSearchTerm: String = ""
+	static fileprivate var lastSearchTerm = ""
 
-	static func configure() {
-
+	static func configure(properties: [AnalyticsProperty]) {
 		FirebaseApp.configure()
-
-		// Set User Properties
-		let userDefaults = UserDefaults.standard
-		let membership = userDefaults.object(forKey: Common.UserDefaults.memberInfoIDUserDefaultsKey) != nil ? "Member" : "None"
-		let deviceLanguage = NSLocale.preferredLanguages.first!
-		let languageString: String = Common.stringForLanguage[Common.currentLanguage]!
-		setUserProperty(property: .membership, value: membership)
-		setUserProperty(property: .appLanguage, value: languageString)
-		setUserProperty(property: .deviceLanguage, value: deviceLanguage)
+        setupUserProperties(properties)
 	}
+
+    private static func setupUserProperties(_ properties: [AnalyticsProperty]) {
+        properties.forEach { set(userProperty: $0) }
+    }
 
 	// MARK: Track Screens
 
@@ -121,25 +108,34 @@ class AICAnalytics {
 
 	// MARK: Set User Property
 
-	private static func setUserProperty(property: UserProperty, value: String) {
-		Analytics.setUserProperty(value, forName: property.rawValue)
+    private static func set(userProperty: AnalyticsProperty) {
+        Analytics.setUserProperty(
+            userProperty.value,
+            forName: userProperty.key
+        )
 	}
 
 	// MARK: Language
 
 	static func sendLanguageFirstSelectionEvent(language: Common.Language) {
-		let languageString: String = Common.stringForLanguage[language]!
-		setUserProperty(property: .appLanguage, value: languageString)
-		let parameters: [String: String] = [
-			"start_language": languageString
-		]
-		trackEvent(.languageFirstSelection, parameters: parameters)
+        let appLanguage = appLanguageProperty(language)
+        set(userProperty: appLanguage)
+        trackEvent(
+            .languageFirstSelection,
+            parameters: ["start_language": appLanguage.value]
+        )
 	}
 
 	static func updateLanguageSelection(language: Common.Language) {
-		let languageString: String = Common.stringForLanguage[language]!
-		setUserProperty(property: .appLanguage, value: languageString)
+        set(userProperty: appLanguageProperty(language))
 	}
+
+    private static func appLanguageProperty(_ language: Common.Language) -> AnalyticsProperty {
+        AnalyticsProperty(
+            key: AnalyticsPropertyType.appLanguage.key,
+            value: Common.stringForLanguage[language, default: "English"]
+        )
+    }
 
 	// MARK: Location
 
@@ -165,7 +161,13 @@ class AICAnalytics {
 
 	// MARK: Audio Player
 
-	static func sendAudioPlayedEvent(source: PlaybackSource, language: Common.Language, audio: AICAudioFileModel, artwork: AICObjectModel?, tour: AICTourModel?) {
+    static func sendAudioPlayedEvent(
+        source: PlaybackSource,
+        language: Common.Language,
+        audio: AICAudioFileModel,
+        artwork: AICObjectModel?,
+        tour: AICTourModel?
+    ) {
 		let languageString: String = Common.stringForLanguage[language]!
 		var parameters: [String: String] = [
 			"playback_source": source.rawValue,
@@ -181,7 +183,11 @@ class AICAnalytics {
 		trackEvent(.audioPlayed, parameters: parameters)
 	}
 
-	static func sendAudioStoppedEvent(title: String, audio: AICAudioFileModel, percentPlayed: Int) {
+    static func sendAudioStoppedEvent(
+        title: String,
+        audio: AICAudioFileModel,
+        percentPlayed: Int
+    ) {
 		let percent = percentPlayed > 95 ? 100 : percentPlayed
 		let completion: PlaybackCompletion = percent == 100 ? .Completed : .Interrupted
 		let parameters: [String: String] = [
@@ -270,8 +276,8 @@ class AICAnalytics {
 
 	// MARK: Members
 
-	static func sendMemberCardShownEvent() {
-		setUserProperty(property: .membership, value: "Member")
+    static func sendMemberCardShownEvent(property: AnalyticsProperty) {
+		set(userProperty: property)
 		trackEvent(.memberCardShown)
 	}
 
@@ -304,7 +310,11 @@ class AICAnalytics {
 
 	// MARK: Search Tapped Content
 
-	static func sendSearchTappedArtworkEvent(searchedArtwork: AICSearchedArtworkModel, searchTerm: String, searchTermSource: SearchTermSource) {
+    static func sendSearchTappedArtworkEvent(
+        searchedArtwork: AICSearchedArtworkModel,
+        searchTerm: String,
+        searchTermSource: SearchTermSource
+    ) {
 		let parameters: [String: String] = [
 			"title": searchedArtwork.title.truncate(length: parameterMaxLength),
 			"search_term": searchTerm.truncate(length: parameterMaxLength),
@@ -313,7 +323,11 @@ class AICAnalytics {
 		trackEvent(.searchTappedArtwork, parameters: parameters)
 	}
 
-	static func sendSearchTappedTourEvent(tour: AICTourModel, searchTerm: String, searchTermSource: SearchTermSource) {
+    static func sendSearchTappedTourEvent(
+        tour: AICTourModel,
+        searchTerm: String,
+        searchTermSource: SearchTermSource
+    ) {
 		let parameters: [String: String] = [
 			"title": tour.translations[.english]!.title.truncate(length: parameterMaxLength),
 			"search_term": searchTerm.truncate(length: parameterMaxLength),
@@ -322,7 +336,11 @@ class AICAnalytics {
 		trackEvent(.searchTappedTour, parameters: parameters)
 	}
 
-	static func sendSearchTappedExhibitionEvent(exhibition: AICExhibitionModel, searchTerm: String, searchTermSource: SearchTermSource) {
+    static func sendSearchTappedExhibitionEvent(
+        exhibition: AICExhibitionModel,
+        searchTerm: String,
+        searchTermSource: SearchTermSource
+    ) {
 		let parameters: [String: String] = [
 			"title": exhibition.title.truncate(length: parameterMaxLength),
 			"search_term": searchTerm.truncate(length: parameterMaxLength),
@@ -361,8 +379,12 @@ class AICAnalytics {
 
 extension Analytics {
     static func setScreenName(_ screenName:String, screenClass: String) {
-        Analytics.logEvent(AnalyticsEventScreenView,
-                           parameters: [AnalyticsParameterScreenName: screenName,
-                                       AnalyticsParameterScreenClass:screenClass])
+        Analytics.logEvent(
+            AnalyticsEventScreenView,
+            parameters: [
+                AnalyticsParameterScreenName: screenName,
+                AnalyticsParameterScreenClass:screenClass
+            ]
+        )
     }
 }

@@ -9,5 +9,5 @@ struct AICGalleryModel {
 	let title: String
 	let displayTitle: String
 	let location: CoordinateWithFloor
-	let isOpen: Bool
+	let closed: Bool
 }

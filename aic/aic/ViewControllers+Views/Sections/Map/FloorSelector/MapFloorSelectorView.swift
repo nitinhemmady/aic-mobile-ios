@@ -22,9 +22,6 @@ class MapFloorSelectorView: UIView {
 
 		// Set Drop Shadow
 		layer.masksToBounds = false
-		//        layer.shadowOffset = CGSize(width: 0, height: 0)
-		//        layer.shadowRadius = 5;
-		//        layer.shadowOpacity = 0.5;
 
 		// Create floor buttons
 		for floorNum in 0..<totalFloors {

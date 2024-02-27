@@ -148,11 +148,20 @@
 		306E6E4F2469CA4D00B17CA8 /* Base.strings in Resources */ = {isa = PBXBuildFile; fileRef = 306E6E1B2469CA4C00B17CA8 /* Base.strings */; };
 		306E6E502469CA4D00B17CA8 /* LocationUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 306E6E1D2469CA4C00B17CA8 /* LocationUI.strings */; };
 		3099149B23A8385E00E32ACE /* InfoBuyTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099149A23A8385E00E32ACE /* InfoBuyTicketsView.swift */; };
+		E203C0862C1A3B430055F105 /* DataParserCrashlyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203C0852C1A3B430055F105 /* DataParserCrashlyticsReport.swift */; };
 		E20B1C0829D525A90095E59C /* MapPointOfInterestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B1C0729D525A90095E59C /* MapPointOfInterestType.swift */; };
 		E218869429C0036F00803FF9 /* UIApplication+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218869329C0036F00803FF9 /* UIApplication+KeyWindow.swift */; };
+		E21D01B12BFD0C6100E75C53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21D01B02BFD0C6100E75C53 /* GoogleService-Info.plist */; };
+		E2255A372C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A362C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift */; };
+		E2255A592C10A06400C6F3AD /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A582C10A06400C6F3AD /* CrashlyticsService.swift */; };
+		E2255A5B2C10C2B500C6F3AD /* CrashlyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A5A2C10C2B500C6F3AD /* CrashlyticsReport.swift */; };
+		E2255A5D2C10EDED00C6F3AD /* CrashlyticsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A5C2C10EDED00C6F3AD /* CrashlyticsProperty.swift */; };
+		E2447C6E2BFBEB520016A590 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2447C6D2BFBEB520016A590 /* CrashlyticsManager.swift */; };
+		E2447C732BFC0B0C0016A590 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2447C722BFC0B0C0016A590 /* ParseError.swift */; };
+		E2447C752BFC1B5F0016A590 /* AppDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2447C742BFC1B5F0016A590 /* AppDataParser.swift */; };
 		E260C3B02B751728004911C4 /* Bundle+ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */; };
-		E260C3B32B751D16004911C4 /* PlistFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3B22B751D16004911C4 /* PlistFileLoader.swift */; };
-		E260C3B52B762B74004911C4 /* CommonConfigurationAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3B42B762B74004911C4 /* CommonConfigurationAccessor.swift */; };
+		E260C3B32B751D16004911C4 /* PlistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3B22B751D16004911C4 /* PlistFile.swift */; };
+		E260C3B52B762B74004911C4 /* ConfigurationResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3B42B762B74004911C4 /* ConfigurationResources.swift */; };
 		E274012C2B70DF8B00CA4C71 /* LAContext+BiometryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274012B2B70DF8B00CA4C71 /* LAContext+BiometryType.swift */; };
 		E276C4012AC5909B007A5917 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E276C4002AC5909B007A5917 /* PureLayout */; };
 		E28F3AFA29B96E6A00C03BFD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3AF929B96E6A00C03BFD /* FirebaseAnalytics */; };
@@ -165,6 +174,8 @@
 		E28F3B0C29BAC1F900C03BFD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3B0B29BAC1F900C03BFD /* SwiftyJSON */; };
 		E28F3B1229BAC28E00C03BFD /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3B1129BAC28E00C03BFD /* Atributika */; };
 		E28F3B1529BAC33300C03BFD /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3B1429BAC33300C03BFD /* Localize_Swift */; };
+		E2C6EE242BFD762B00AC45F8 /* AnalyticsPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C6EE232BFD762B00AC45F8 /* AnalyticsPropertyType.swift */; };
+		E2C6EE272BFD769C00AC45F8 /* AnalyticsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C6EE262BFD769C00AC45F8 /* AnalyticsProperty.swift */; };
 		E2C72F0829C3EFA30021F1EC /* UIViewController+ChildTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F0729C3EFA30021F1EC /* UIViewController+ChildTransition.swift */; };
 		E2C72F0A29C3FBB20021F1EC /* ContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F0929C3FBB20021F1EC /* ContentState.swift */; };
 		E407F9E21C9A561E00E285B4 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407F9E11C9A561E00E285B4 /* AudioPlayerView.swift */; };
@@ -192,7 +203,6 @@
 		E458502F1CAC8C1A00131A66 /* AICExhibitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458502E1CAC8C1A00131A66 /* AICExhibitionModel.swift */; };
 		E47A970B1CEFA15D0041D0A6 /* AICMemberInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A970A1CEFA15D0041D0A6 /* AICMemberInfoModel.swift */; };
 		E47A97151CEFBC150041D0A6 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A97131CEFBC150041D0A6 /* AppDataManager.swift */; };
-		E47A97161CEFBC150041D0A6 /* AppDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A97141CEFBC150041D0A6 /* AppDataParser.swift */; };
 		E47A971A1CF262760041D0A6 /* AICTooltipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A97191CF262760041D0A6 /* AICTooltipModel.swift */; };
 		E47A972F1CF3EE140041D0A6 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A972E1CF3EE140041D0A6 /* LoadingViewController.swift */; };
 		E47A97381CF607990041D0A6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E47A97371CF607990041D0A6 /* Settings.bundle */; };
@@ -213,7 +223,6 @@
 		E4F7AF971CFB673900524F87 /* AICMapFloorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7AF961CFB673900524F87 /* AICMapFloorModel.swift */; };
 		E4F82F6E1CA45F3400E4224B /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F82F6B1CA45F3400E4224B /* SectionViewController.swift */; };
 		E4FFC6EC1D00B7FD0082818D /* AICMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FFC6EB1D00B7FD0082818D /* AICMessageModel.swift */; };
-		F732DB2C29EBA3B500C67CFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F732DB2B29EBA3B500C67CFE /* GoogleService-Info.plist */; };
 		F732DB2E29EBA3CE00C67CFE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = F732DB2D29EBA3CE00C67CFE /* Config.plist */; };
 /* End PBXBuildFile section */
 
@@ -417,12 +426,23 @@
 		306E6E452469CA4C00B17CA8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Base.strings; sourceTree = "<group>"; };
 		306E6E462469CA4C00B17CA8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LocationUI.strings; sourceTree = "<group>"; };
 		3099149A23A8385E00E32ACE /* InfoBuyTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuyTicketsView.swift; sourceTree = "<group>"; };
+		E203C0852C1A3B430055F105 /* DataParserCrashlyticsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParserCrashlyticsReport.swift; sourceTree = "<group>"; };
 		E20B1C0729D525A90095E59C /* MapPointOfInterestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointOfInterestType.swift; sourceTree = "<group>"; };
 		E218869329C0036F00803FF9 /* UIApplication+KeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+KeyWindow.swift"; sourceTree = "<group>"; };
+		E21D01B02BFD0C6100E75C53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "aic/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E2255A362C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCrashlyticsService.swift; sourceTree = "<group>"; };
+		E2255A582C10A06400C6F3AD /* CrashlyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsService.swift; sourceTree = "<group>"; };
+		E2255A5A2C10C2B500C6F3AD /* CrashlyticsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsReport.swift; sourceTree = "<group>"; };
+		E2255A5C2C10EDED00C6F3AD /* CrashlyticsProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsProperty.swift; sourceTree = "<group>"; };
+		E2447C6D2BFBEB520016A590 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
+		E2447C722BFC0B0C0016A590 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
+		E2447C742BFC1B5F0016A590 /* AppDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataParser.swift; sourceTree = "<group>"; };
 		E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ApplicationInfo.swift"; sourceTree = "<group>"; };
-		E260C3B22B751D16004911C4 /* PlistFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistFileLoader.swift; sourceTree = "<group>"; };
-		E260C3B42B762B74004911C4 /* CommonConfigurationAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConfigurationAccessor.swift; sourceTree = "<group>"; };
+		E260C3B22B751D16004911C4 /* PlistFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistFile.swift; sourceTree = "<group>"; };
+		E260C3B42B762B74004911C4 /* ConfigurationResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationResources.swift; sourceTree = "<group>"; };
 		E274012B2B70DF8B00CA4C71 /* LAContext+BiometryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LAContext+BiometryType.swift"; sourceTree = "<group>"; };
+		E2C6EE232BFD762B00AC45F8 /* AnalyticsPropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPropertyType.swift; sourceTree = "<group>"; };
+		E2C6EE262BFD769C00AC45F8 /* AnalyticsProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsProperty.swift; sourceTree = "<group>"; };
 		E2C72F0729C3EFA30021F1EC /* UIViewController+ChildTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildTransition.swift"; sourceTree = "<group>"; };
 		E2C72F0929C3FBB20021F1EC /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
 		E407F9E11C9A561E00E285B4 /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
@@ -458,7 +478,6 @@
 		E47A970A1CEFA15D0041D0A6 /* AICMemberInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AICMemberInfoModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E47A970D1CEFBB1E0041D0A6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		E47A97131CEFBC150041D0A6 /* AppDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDataManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E47A97141CEFBC150041D0A6 /* AppDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDataParser.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E47A97191CF262760041D0A6 /* AICTooltipModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AICTooltipModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E47A972E1CF3EE140041D0A6 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E47A97371CF607990041D0A6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -479,7 +498,6 @@
 		E4F7AF961CFB673900524F87 /* AICMapFloorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AICMapFloorModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E4F82F6B1CA45F3400E4224B /* SectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		E4FFC6EB1D00B7FD0082818D /* AICMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AICMessageModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F732DB2B29EBA3B500C67CFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F732DB2D29EBA3CE00C67CFE /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Config.plist; path = ../../../../../Desktop/Config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -580,8 +598,8 @@
 		293D00731FA7C7EF00BF2C26 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E21D01B02BFD0C6100E75C53 /* GoogleService-Info.plist */,
 				F732DB2D29EBA3CE00C67CFE /* Config.plist */,
-				F732DB2B29EBA3B500C67CFE /* GoogleService-Info.plist */,
 				2926F2162080075E00DE9D4A /* fonts */,
 				293D00AB1FA7CA6600BF2C26 /* video */,
 			);
@@ -887,12 +905,34 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E2255A352C0FA87C00C6F3AD /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				E2447C6D2BFBEB520016A590 /* CrashlyticsManager.swift */,
+				E2255A5C2C10EDED00C6F3AD /* CrashlyticsProperty.swift */,
+				E2255A5A2C10C2B500C6F3AD /* CrashlyticsReport.swift */,
+				E2255A582C10A06400C6F3AD /* CrashlyticsService.swift */,
+				E203C0852C1A3B430055F105 /* DataParserCrashlyticsReport.swift */,
+				E2255A362C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift */,
+			);
+			name = Crashlytics;
+			sourceTree = "<group>";
+		};
 		E260C3B12B751D01004911C4 /* DataLoader */ = {
 			isa = PBXGroup;
 			children = (
-				E260C3B22B751D16004911C4 /* PlistFileLoader.swift */,
+				E260C3B22B751D16004911C4 /* PlistFile.swift */,
 			);
 			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		E2C6EE252BFD768200AC45F8 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				E2C6EE262BFD769C00AC45F8 /* AnalyticsProperty.swift */,
+				E2C6EE232BFD762B00AC45F8 /* AnalyticsPropertyType.swift */,
+			);
+			name = Property;
 			sourceTree = "<group>";
 		};
 		E40D41C01C6CEBB700A57AF4 = {
@@ -922,8 +962,8 @@
 			isa = PBXGroup;
 			children = (
 				0E3350C21DA6C7A500CE3612 /* aic.entitlements */,
-				E43F36891D2B2F8200DA4DA6 /* Analytics */,
 				E433BACC1CFDD64A0086F2ED /* Application */,
+				E43F36891D2B2F8200DA4DA6 /* Analytics */,
 				E4223CE61CC7FE6D00503D43 /* Data */,
 				306E6E0A2469CA4C00B17CA8 /* Localization */,
 				E415ABBD1C7298420093B719 /* Models */,
@@ -968,7 +1008,7 @@
 				E4F518FA1D2586B0004BFB44 /* AICImageView.swift */,
 				29DAF05E1FB3974F002ED862 /* LinkedTextView.swift */,
 				05A2B2FA21024A780059C123 /* UILabelPadding.swift */,
-				E260C3B42B762B74004911C4 /* CommonConfigurationAccessor.swift */,
+				E260C3B42B762B74004911C4 /* ConfigurationResources.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1061,8 +1101,9 @@
 		E4223CE61CC7FE6D00503D43 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E2447C722BFC0B0C0016A590 /* ParseError.swift */,
+				E2447C742BFC1B5F0016A590 /* AppDataParser.swift */,
 				E47A97131CEFBC150041D0A6 /* AppDataManager.swift */,
-				E47A97141CEFBC150041D0A6 /* AppDataParser.swift */,
 				E4223CE41CC7FE6600503D43 /* MemberDataManager.swift */,
 				294338511FDC849E00ECF321 /* SearchDataManager.swift */,
 			);
@@ -1091,7 +1132,9 @@
 		E43F36891D2B2F8200DA4DA6 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				E2C6EE252BFD768200AC45F8 /* Property */,
 				E43F368A1D2B2F9900DA4DA6 /* AICAnalytics.swift */,
+				E2255A352C0FA87C00C6F3AD /* Crashlytics */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -1141,6 +1184,7 @@
 				E40D41C51C6CEBB700A57AF4 /* Sources */,
 				E40D41C61C6CEBB700A57AF4 /* Frameworks */,
 				E40D41C71C6CEBB700A57AF4 /* Resources */,
+				E21D01B22BFD0E7100E75C53 /* Run Crashlytics Script */,
 			);
 			buildRules = (
 			);
@@ -1228,7 +1272,6 @@
 					};
 					E40D41DE1C6CEBB700A57AF4 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 6CA8WK4597;
 						LastSwiftMigration = 1130;
 						TestTargetID = E40D41C81C6CEBB700A57AF4;
 					};
@@ -1306,7 +1349,7 @@
 				29412AEC1FCE1F44005A7172 /* HomeExhibitionCell.xib in Resources */,
 				29F261FB200FE5AF0000BF05 /* ExhibitionContentCell.xib in Resources */,
 				293D00AC1FA7CA6700BF2C26 /* video in Resources */,
-				F732DB2C29EBA3B500C67CFE /* GoogleService-Info.plist in Resources */,
+				E21D01B12BFD0C6100E75C53 /* GoogleService-Info.plist in Resources */,
 				294338561FDD656500ECF321 /* MapItemsCollectionContainerCell.xib in Resources */,
 				306E6E4D2469CA4D00B17CA8 /* MediaUI.strings in Resources */,
 				29F26201200FFADF0000BF05 /* ArtworkContentCell.xib in Resources */,
@@ -1330,6 +1373,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E21D01B22BFD0E7100E75C53 /* Run Crashlytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			name = "Run Crashlytics Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E40D41C51C6CEBB700A57AF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1343,6 +1413,7 @@
 				295AC0991FDF923B009A0FAF /* InfoPageView.swift in Sources */,
 				294C0B4C201A76F700F2ABB1 /* MapAmenityAnnotationView.swift in Sources */,
 				2968F67C2012612E00638153 /* LanguageSelectionViewController.swift in Sources */,
+				E2255A5B2C10C2B500C6F3AD /* CrashlyticsReport.swift in Sources */,
 				E4D159311CB9A61F00536B4D /* UIFont+AIC.swift in Sources */,
 				E43F368B1D2B2F9900DA4DA6 /* AICAnalytics.swift in Sources */,
 				291EC72C1FE1E48600A43186 /* ResultsFilterMenuView.swift in Sources */,
@@ -1360,6 +1431,7 @@
 				29C91B111FC4E5D8008C3E9E /* HomeTourCell.swift in Sources */,
 				E218869429C0036F00803FF9 /* UIApplication+KeyWindow.swift in Sources */,
 				E47A970B1CEFA15D0041D0A6 /* AICMemberInfoModel.swift in Sources */,
+				E2447C6E2BFBEB520016A590 /* CrashlyticsManager.swift in Sources */,
 				295AC09B1FE02BF7009A0FAF /* AICEventModel.swift in Sources */,
 				E411DE7F1CCD37A800E22047 /* AICGalleryModel.swift in Sources */,
 				29E003EF20486F9300E1D305 /* AICRestaurantModel.swift in Sources */,
@@ -1368,6 +1440,7 @@
 				29EABE4E1FE0448D0049E341 /* SeeAllEventCell.swift in Sources */,
 				28F7980E1E7B40E600D22E0E /* Common.swift in Sources */,
 				29A67F8C20290389003C630A /* TourStopPageViewController.swift in Sources */,
+				E2255A372C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift in Sources */,
 				E421783C1CC6E1F300815B41 /* String+AIC.swift in Sources */,
 				E407F9E21C9A561E00E285B4 /* AudioPlayerView.swift in Sources */,
 				E4F519C71C87B2F200226188 /* Helpers.swift in Sources */,
@@ -1397,6 +1470,7 @@
 				29B9B58F1FD0A3FF0095FE52 /* SeeAllViewController.swift in Sources */,
 				2941CE7A1FE08EF400B7CCEE /* CardTitleView.swift in Sources */,
 				2915B0F2202CA08B00DEBB03 /* LanguageSelectorView.swift in Sources */,
+				E2C6EE242BFD762B00AC45F8 /* AnalyticsPropertyType.swift in Sources */,
 				E47A971A1CF262760041D0A6 /* AICTooltipModel.swift in Sources */,
 				294C0B53201A76F700F2ABB1 /* MapObjectAnnotation.swift in Sources */,
 				29E003F1204967A600E1D305 /* MapAnnotation.swift in Sources */,
@@ -1411,6 +1485,7 @@
 				29C7D0C9202532930015984B /* AudioPlayerNavigationController.swift in Sources */,
 				294C0B5F201A76F700F2ABB1 /* VisibleMapRegionDelegate.swift in Sources */,
 				294C0B4D201A76F700F2ABB1 /* MapTextAnnotationView.swift in Sources */,
+				E203C0862C1A3B430055F105 /* DataParserCrashlyticsReport.swift in Sources */,
 				294C0B25201A756900F2ABB1 /* MapNavigationController.swift in Sources */,
 				29A67F852027752E003C630A /* AudioPlayerSlider.swift in Sources */,
 				2986A58C1FBCD38C00029E74 /* HomeNavigationController.swift in Sources */,
@@ -1440,19 +1515,19 @@
 				294C0B56201A76F700F2ABB1 /* MapDepartmentAnnotation.swift in Sources */,
 				295A86841FBDF1D600F0B807 /* SectionNavigationBar.swift in Sources */,
 				29C7D0C5202456100015984B /* SearchSlideAnimator.swift in Sources */,
-				E47A97161CEFBC150041D0A6 /* AppDataParser.swift in Sources */,
 				296D559520239F3E00442A60 /* CardNavigationController.swift in Sources */,
 				294C0B61201A76F700F2ABB1 /* MKMapRectRotated.swift in Sources */,
 				2915B0F4202CA0BE00DEBB03 /* LanguageSelectorButton.swift in Sources */,
 				2941CE801FE09F6000B7CCEE /* SearchContentViewController.swift in Sources */,
 				294338521FDC849E00ECF321 /* SearchDataManager.swift in Sources */,
-				E260C3B32B751D16004911C4 /* PlistFileLoader.swift in Sources */,
+				E260C3B32B751D16004911C4 /* PlistFile.swift in Sources */,
 				E4BBB6771CA1A1FB00B8A37C /* BaseView.swift in Sources */,
 				29F261FF200FFACF0000BF05 /* ArtworkContentCell.swift in Sources */,
 				290A0FB62044D60F000CDA8F /* TooltipArrowView.swift in Sources */,
 				293127811FDF0EC5008BFAB1 /* ContentButtonCell.swift in Sources */,
 				294C0B21201A52BC00F2ABB1 /* EventContentCell.swift in Sources */,
 				3099149B23A8385E00E32ACE /* InfoBuyTicketsView.swift in Sources */,
+				E2255A592C10A06400C6F3AD /* CrashlyticsService.swift in Sources */,
 				E4223CE51CC7FE6600503D43 /* MemberDataManager.swift in Sources */,
 				2941CE7C1FE0928D00B7CCEE /* TourContentCell.swift in Sources */,
 				E20B1C0829D525A90095E59C /* MapPointOfInterestType.swift in Sources */,
@@ -1463,12 +1538,14 @@
 				E260C3B02B751728004911C4 /* Bundle+ApplicationInfo.swift in Sources */,
 				294C0B5B201A76F700F2ABB1 /* FloorplanOverlayRenderer.swift in Sources */,
 				E415ABD51C7298420093B719 /* MiniAudioPlayerView.swift in Sources */,
-				E260C3B52B762B74004911C4 /* CommonConfigurationAccessor.swift in Sources */,
+				E260C3B52B762B74004911C4 /* ConfigurationResources.swift in Sources */,
 				2986A58A1FBCBD8B00029E74 /* SectionNavigationController.swift in Sources */,
 				E42677E31CC558060046BB27 /* AICButton.swift in Sources */,
+				E2255A5D2C10EDED00C6F3AD /* CrashlyticsProperty.swift in Sources */,
 				29E003ED204858F900E1D305 /* MapRestaurantContentView.swift in Sources */,
 				E4F7AF971CFB673900524F87 /* AICMapFloorModel.swift in Sources */,
 				29B9B5931FD0A7670095FE52 /* SeeAllTourCell.swift in Sources */,
+				E2C6EE272BFD769C00AC45F8 /* AnalyticsProperty.swift in Sources */,
 				29E003EB2048561F00E1D305 /* RestaurantPageViewController.swift in Sources */,
 				29A7BD011FBF87D900FD8639 /* InfoViewController.swift in Sources */,
 				E47A972F1CF3EE140041D0A6 /* LoadingViewController.swift in Sources */,
@@ -1476,6 +1553,7 @@
 				2968F67920125B5700638153 /* MessageViewController.swift in Sources */,
 				294C0B68201A770E00F2ABB1 /* MapViewController.swift in Sources */,
 				2941CE821FE0D62E00B7CCEE /* ResultsContentTitleView.swift in Sources */,
+				E2447C752BFC1B5F0016A590 /* AppDataParser.swift in Sources */,
 				E433BAD01CFDD64A0086F2ED /* RootViewController.swift in Sources */,
 				295AC0971FDF8FE5009A0FAF /* LanguageViewController.swift in Sources */,
 				294C0B69201A770E00F2ABB1 /* MapView.swift in Sources */,
@@ -1493,6 +1571,7 @@
 				2994891F1FA3849C00943197 /* AICGeneralInfoModel.swift in Sources */,
 				2984611E203A046C001E5378 /* MapTextContentView.swift in Sources */,
 				294338541FDD5FC900ECF321 /* MapItemsCollectionContainerCell.swift in Sources */,
+				E2447C732BFC0B0C0016A590 /* ParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1774,13 +1853,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
-				BUNDLE_ID_SUFFIX = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = aic/aic.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6CA8WK4597;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6CA8WK4597;
@@ -1804,10 +1882,10 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.artic.AICOfficialMobileApp${BUNDLE_ID_SUFFIX}";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.artic.AICOfficialMobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "iPhone Distribution: Art Institute Chicago (6CA8WK4597)";
+				PROVISIONING_PROFILE_SPECIFIER = "Art Institute of Chicago Official Mobile App";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Art Institute of Chicago Official Mobile App";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1823,13 +1901,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
-				BUNDLE_ID_SUFFIX = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = aic/aic.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Art Institute Chicago (6CA8WK4597)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Art Institute Chicago (6CA8WK4597)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 6CA8WK4597;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6CA8WK4597;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1853,10 +1930,10 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.artic.AICOfficialMobileApp${BUNDLE_ID_SUFFIX}";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.artic.AICOfficialMobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "iPhone Distribution: Art Institute Chicago (6CA8WK4597)";
+				PROVISIONING_PROFILE_SPECIFIER = "Art Institute of Chicago Official Mobile App";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Art Institute of Chicago Official Mobile App";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2020,12 +2097,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
-				BUNDLE_ID_SUFFIX = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = aic/aic.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Art Institute Chicago (6CA8WK4597)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Art Institute Chicago (6CA8WK4597)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 6CA8WK4597;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6CA8WK4597;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2048,10 +2124,10 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_STORE";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.artic.AICOfficialMobileApp${BUNDLE_ID_SUFFIX}";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.artic.AICOfficialMobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "iPhone Distribution: Art Institute Chicago (6CA8WK4597)";
+				PROVISIONING_PROFILE_SPECIFIER = "Art Institute of Chicago Official Mobile App";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Art Institute of Chicago Official Mobile App";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2067,6 +2143,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6CA8WK4597;
 				INFOPLIST_FILE = aicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2165,8 +2243,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
 			};
 		};
 		E28F3B0129BAC14A00C03BFD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
