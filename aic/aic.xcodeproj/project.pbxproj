@@ -148,15 +148,9 @@
 		306E6E4F2469CA4D00B17CA8 /* Base.strings in Resources */ = {isa = PBXBuildFile; fileRef = 306E6E1B2469CA4C00B17CA8 /* Base.strings */; };
 		306E6E502469CA4D00B17CA8 /* LocationUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 306E6E1D2469CA4C00B17CA8 /* LocationUI.strings */; };
 		3099149B23A8385E00E32ACE /* InfoBuyTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099149A23A8385E00E32ACE /* InfoBuyTicketsView.swift */; };
-		E203C0862C1A3B430055F105 /* DataParserCrashlyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E203C0852C1A3B430055F105 /* DataParserCrashlyticsReport.swift */; };
 		E20B1C0829D525A90095E59C /* MapPointOfInterestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B1C0729D525A90095E59C /* MapPointOfInterestType.swift */; };
 		E218869429C0036F00803FF9 /* UIApplication+KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218869329C0036F00803FF9 /* UIApplication+KeyWindow.swift */; };
 		E21D01B12BFD0C6100E75C53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21D01B02BFD0C6100E75C53 /* GoogleService-Info.plist */; };
-		E2255A372C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A362C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift */; };
-		E2255A592C10A06400C6F3AD /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A582C10A06400C6F3AD /* CrashlyticsService.swift */; };
-		E2255A5B2C10C2B500C6F3AD /* CrashlyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A5A2C10C2B500C6F3AD /* CrashlyticsReport.swift */; };
-		E2255A5D2C10EDED00C6F3AD /* CrashlyticsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2255A5C2C10EDED00C6F3AD /* CrashlyticsProperty.swift */; };
-		E2447C6E2BFBEB520016A590 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2447C6D2BFBEB520016A590 /* CrashlyticsManager.swift */; };
 		E2447C732BFC0B0C0016A590 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2447C722BFC0B0C0016A590 /* ParseError.swift */; };
 		E2447C752BFC1B5F0016A590 /* AppDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2447C742BFC1B5F0016A590 /* AppDataParser.swift */; };
 		E260C3B02B751728004911C4 /* Bundle+ApplicationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */; };
@@ -174,8 +168,15 @@
 		E28F3B0C29BAC1F900C03BFD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3B0B29BAC1F900C03BFD /* SwiftyJSON */; };
 		E28F3B1229BAC28E00C03BFD /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3B1129BAC28E00C03BFD /* Atributika */; };
 		E28F3B1529BAC33300C03BFD /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = E28F3B1429BAC33300C03BFD /* Localize_Swift */; };
-		E2C6EE242BFD762B00AC45F8 /* AnalyticsPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C6EE232BFD762B00AC45F8 /* AnalyticsPropertyType.swift */; };
-		E2C6EE272BFD769C00AC45F8 /* AnalyticsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C6EE262BFD769C00AC45F8 /* AnalyticsProperty.swift */; };
+		E2C348672C2345E0007392BB /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3485B2C2345E0007392BB /* CrashlyticsManager.swift */; };
+		E2C348682C2345E0007392BB /* CrashlyticsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3485C2C2345E0007392BB /* CrashlyticsProperty.swift */; };
+		E2C348692C2345E0007392BB /* CrashlyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3485D2C2345E0007392BB /* CrashlyticsReport.swift */; };
+		E2C3486A2C2345E0007392BB /* CrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3485E2C2345E0007392BB /* CrashlyticsService.swift */; };
+		E2C3486B2C2345E0007392BB /* DataParserCrashlyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3485F2C2345E0007392BB /* DataParserCrashlyticsReport.swift */; };
+		E2C3486C2C2345E0007392BB /* AnalyticsProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C348612C2345E0007392BB /* AnalyticsProperty.swift */; };
+		E2C3486D2C2345E0007392BB /* AnalyticsPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C348622C2345E0007392BB /* AnalyticsPropertyType.swift */; };
+		E2C3486E2C2345E0007392BB /* AICAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C348642C2345E0007392BB /* AICAnalytics.swift */; };
+		E2C3486F2C2345E0007392BB /* FirebaseCrashlyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C348652C2345E0007392BB /* FirebaseCrashlyticsService.swift */; };
 		E2C72F0829C3EFA30021F1EC /* UIViewController+ChildTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F0729C3EFA30021F1EC /* UIViewController+ChildTransition.swift */; };
 		E2C72F0A29C3FBB20021F1EC /* ContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F0929C3FBB20021F1EC /* ContentState.swift */; };
 		E407F9E21C9A561E00E285B4 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407F9E11C9A561E00E285B4 /* AudioPlayerView.swift */; };
@@ -196,7 +197,6 @@
 		E433BAD01CFDD64A0086F2ED /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433BACE1CFDD64A0086F2ED /* RootViewController.swift */; };
 		E439FD011CA8A6350004BC59 /* AudioGuideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439FD001CA8A6350004BC59 /* AudioGuideCollectionViewCell.swift */; };
 		E43F36741D2B0E3600DA4DA6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43F36731D2B0E3600DA4DA6 /* AddressBook.framework */; };
-		E43F368B1D2B2F9900DA4DA6 /* AICAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F368A1D2B2F9900DA4DA6 /* AICAnalytics.swift */; };
 		E43F368E1D2C31A400DA4DA6 /* AICSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F368D1D2C31A400DA4DA6 /* AICSectionModel.swift */; };
 		E456F9A51D2DAAAF00DEA3C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E456F9A31D2DAA8E00DEA3C9 /* CoreData.framework */; };
 		E456F9A71D2DAAC100DEA3C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E456F9A61D2DAAC100DEA3C9 /* SystemConfiguration.framework */; };
@@ -426,23 +426,24 @@
 		306E6E452469CA4C00B17CA8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Base.strings; sourceTree = "<group>"; };
 		306E6E462469CA4C00B17CA8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LocationUI.strings; sourceTree = "<group>"; };
 		3099149A23A8385E00E32ACE /* InfoBuyTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuyTicketsView.swift; sourceTree = "<group>"; };
-		E203C0852C1A3B430055F105 /* DataParserCrashlyticsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParserCrashlyticsReport.swift; sourceTree = "<group>"; };
 		E20B1C0729D525A90095E59C /* MapPointOfInterestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPointOfInterestType.swift; sourceTree = "<group>"; };
 		E218869329C0036F00803FF9 /* UIApplication+KeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+KeyWindow.swift"; sourceTree = "<group>"; };
 		E21D01B02BFD0C6100E75C53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "aic/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		E2255A362C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCrashlyticsService.swift; sourceTree = "<group>"; };
-		E2255A582C10A06400C6F3AD /* CrashlyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsService.swift; sourceTree = "<group>"; };
-		E2255A5A2C10C2B500C6F3AD /* CrashlyticsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsReport.swift; sourceTree = "<group>"; };
-		E2255A5C2C10EDED00C6F3AD /* CrashlyticsProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsProperty.swift; sourceTree = "<group>"; };
-		E2447C6D2BFBEB520016A590 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		E2447C722BFC0B0C0016A590 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		E2447C742BFC1B5F0016A590 /* AppDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataParser.swift; sourceTree = "<group>"; };
 		E260C3AF2B751728004911C4 /* Bundle+ApplicationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ApplicationInfo.swift"; sourceTree = "<group>"; };
 		E260C3B22B751D16004911C4 /* PlistFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistFile.swift; sourceTree = "<group>"; };
 		E260C3B42B762B74004911C4 /* ConfigurationResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationResources.swift; sourceTree = "<group>"; };
 		E274012B2B70DF8B00CA4C71 /* LAContext+BiometryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LAContext+BiometryType.swift"; sourceTree = "<group>"; };
-		E2C6EE232BFD762B00AC45F8 /* AnalyticsPropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPropertyType.swift; sourceTree = "<group>"; };
-		E2C6EE262BFD769C00AC45F8 /* AnalyticsProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsProperty.swift; sourceTree = "<group>"; };
+		E2C3485B2C2345E0007392BB /* CrashlyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
+		E2C3485C2C2345E0007392BB /* CrashlyticsProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashlyticsProperty.swift; sourceTree = "<group>"; };
+		E2C3485D2C2345E0007392BB /* CrashlyticsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashlyticsReport.swift; sourceTree = "<group>"; };
+		E2C3485E2C2345E0007392BB /* CrashlyticsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashlyticsService.swift; sourceTree = "<group>"; };
+		E2C3485F2C2345E0007392BB /* DataParserCrashlyticsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParserCrashlyticsReport.swift; sourceTree = "<group>"; };
+		E2C348612C2345E0007392BB /* AnalyticsProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsProperty.swift; sourceTree = "<group>"; };
+		E2C348622C2345E0007392BB /* AnalyticsPropertyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsPropertyType.swift; sourceTree = "<group>"; };
+		E2C348642C2345E0007392BB /* AICAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AICAnalytics.swift; sourceTree = "<group>"; };
+		E2C348652C2345E0007392BB /* FirebaseCrashlyticsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseCrashlyticsService.swift; sourceTree = "<group>"; };
 		E2C72F0729C3EFA30021F1EC /* UIViewController+ChildTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ChildTransition.swift"; sourceTree = "<group>"; };
 		E2C72F0929C3FBB20021F1EC /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
 		E407F9E11C9A561E00E285B4 /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
@@ -469,7 +470,6 @@
 		E433BACE1CFDD64A0086F2ED /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "../ViewControllers+Views/RootViewController.swift"; sourceTree = "<group>"; };
 		E439FD001CA8A6350004BC59 /* AudioGuideCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AudioGuideCollectionViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E43F36731D2B0E3600DA4DA6 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		E43F368A1D2B2F9900DA4DA6 /* AICAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = AICAnalytics.swift; path = Analytics/AICAnalytics.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E43F368D1D2C31A400DA4DA6 /* AICSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AICSectionModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E456F9A31D2DAA8E00DEA3C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E456F9A61D2DAAC100DEA3C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -905,19 +905,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E2255A352C0FA87C00C6F3AD /* Crashlytics */ = {
-			isa = PBXGroup;
-			children = (
-				E2447C6D2BFBEB520016A590 /* CrashlyticsManager.swift */,
-				E2255A5C2C10EDED00C6F3AD /* CrashlyticsProperty.swift */,
-				E2255A5A2C10C2B500C6F3AD /* CrashlyticsReport.swift */,
-				E2255A582C10A06400C6F3AD /* CrashlyticsService.swift */,
-				E203C0852C1A3B430055F105 /* DataParserCrashlyticsReport.swift */,
-				E2255A362C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift */,
-			);
-			name = Crashlytics;
-			sourceTree = "<group>";
-		};
 		E260C3B12B751D01004911C4 /* DataLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,13 +913,36 @@
 			path = DataLoader;
 			sourceTree = "<group>";
 		};
-		E2C6EE252BFD768200AC45F8 /* Property */ = {
+		E2C348602C2345E0007392BB /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				E2C6EE262BFD769C00AC45F8 /* AnalyticsProperty.swift */,
-				E2C6EE232BFD762B00AC45F8 /* AnalyticsPropertyType.swift */,
+				E2C3485B2C2345E0007392BB /* CrashlyticsManager.swift */,
+				E2C3485C2C2345E0007392BB /* CrashlyticsProperty.swift */,
+				E2C3485D2C2345E0007392BB /* CrashlyticsReport.swift */,
+				E2C3485E2C2345E0007392BB /* CrashlyticsService.swift */,
+				E2C3485F2C2345E0007392BB /* DataParserCrashlyticsReport.swift */,
 			);
-			name = Property;
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		E2C348632C2345E0007392BB /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				E2C348612C2345E0007392BB /* AnalyticsProperty.swift */,
+				E2C348622C2345E0007392BB /* AnalyticsPropertyType.swift */,
+			);
+			path = Property;
+			sourceTree = "<group>";
+		};
+		E2C348662C2345E0007392BB /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				E2C348642C2345E0007392BB /* AICAnalytics.swift */,
+				E2C348652C2345E0007392BB /* FirebaseCrashlyticsService.swift */,
+				E2C348602C2345E0007392BB /* Crashlytics */,
+				E2C348632C2345E0007392BB /* Property */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		E40D41C01C6CEBB700A57AF4 = {
@@ -963,7 +973,7 @@
 			children = (
 				0E3350C21DA6C7A500CE3612 /* aic.entitlements */,
 				E433BACC1CFDD64A0086F2ED /* Application */,
-				E43F36891D2B2F8200DA4DA6 /* Analytics */,
+				E2C348662C2345E0007392BB /* Analytics */,
 				E4223CE61CC7FE6D00503D43 /* Data */,
 				306E6E0A2469CA4C00B17CA8 /* Localization */,
 				E415ABBD1C7298420093B719 /* Models */,
@@ -1128,16 +1138,6 @@
 			name = Messages;
 			path = "aic/ViewControllers+Views/Messages";
 			sourceTree = SOURCE_ROOT;
-		};
-		E43F36891D2B2F8200DA4DA6 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				E2C6EE252BFD768200AC45F8 /* Property */,
-				E43F368A1D2B2F9900DA4DA6 /* AICAnalytics.swift */,
-				E2255A352C0FA87C00C6F3AD /* Crashlytics */,
-			);
-			name = Analytics;
-			sourceTree = "<group>";
 		};
 		E47A97291CF3EDF10041D0A6 /* Loading */ = {
 			isa = PBXGroup;
@@ -1409,18 +1409,18 @@
 				294C0B60201A76F700F2ABB1 /* CoordinateConverter.swift in Sources */,
 				2915B0F0202BD73400DEBB03 /* AICAudioCommentaryModel.swift in Sources */,
 				E274012C2B70DF8B00CA4C71 /* LAContext+BiometryType.swift in Sources */,
+				E2C3486B2C2345E0007392BB /* DataParserCrashlyticsReport.swift in Sources */,
 				294C0B50201A76F700F2ABB1 /* MapDepartmentAnnotationView.swift in Sources */,
 				295AC0991FDF923B009A0FAF /* InfoPageView.swift in Sources */,
 				294C0B4C201A76F700F2ABB1 /* MapAmenityAnnotationView.swift in Sources */,
 				2968F67C2012612E00638153 /* LanguageSelectionViewController.swift in Sources */,
-				E2255A5B2C10C2B500C6F3AD /* CrashlyticsReport.swift in Sources */,
 				E4D159311CB9A61F00536B4D /* UIFont+AIC.swift in Sources */,
-				E43F368B1D2B2F9900DA4DA6 /* AICAnalytics.swift in Sources */,
 				291EC72C1FE1E48600A43186 /* ResultsFilterMenuView.swift in Sources */,
 				294C0B5E201A76F700F2ABB1 /* FloorplanOverlay.swift in Sources */,
 				294C0B52201A76F700F2ABB1 /* MapAmenityAnnotation.swift in Sources */,
 				E42178301CC57BE200815B41 /* UITextView+AIC.swift in Sources */,
 				290219901FCE2AC8006CFA9E /* HomeEventCell.swift in Sources */,
+				E2C3486C2C2345E0007392BB /* AnalyticsProperty.swift in Sources */,
 				29E0D4A3206361B500DEEC24 /* SeeAllIntroView.swift in Sources */,
 				E4F82F6E1CA45F3400E4224B /* SectionViewController.swift in Sources */,
 				294C0B4F201A76F700F2ABB1 /* MapObjectAnnotationView.swift in Sources */,
@@ -1431,16 +1431,17 @@
 				29C91B111FC4E5D8008C3E9E /* HomeTourCell.swift in Sources */,
 				E218869429C0036F00803FF9 /* UIApplication+KeyWindow.swift in Sources */,
 				E47A970B1CEFA15D0041D0A6 /* AICMemberInfoModel.swift in Sources */,
-				E2447C6E2BFBEB520016A590 /* CrashlyticsManager.swift in Sources */,
 				295AC09B1FE02BF7009A0FAF /* AICEventModel.swift in Sources */,
+				E2C3486F2C2345E0007392BB /* FirebaseCrashlyticsService.swift in Sources */,
 				E411DE7F1CCD37A800E22047 /* AICGalleryModel.swift in Sources */,
+				E2C348692C2345E0007392BB /* CrashlyticsReport.swift in Sources */,
 				29E003EF20486F9300E1D305 /* AICRestaurantModel.swift in Sources */,
 				29824BCE200D86F6003B6DB5 /* ExhibitionTableViewController.swift in Sources */,
 				294C0B59201A76F700F2ABB1 /* MapFloorSelectorView.swift in Sources */,
+				E2C3486E2C2345E0007392BB /* AICAnalytics.swift in Sources */,
 				29EABE4E1FE0448D0049E341 /* SeeAllEventCell.swift in Sources */,
 				28F7980E1E7B40E600D22E0E /* Common.swift in Sources */,
 				29A67F8C20290389003C630A /* TourStopPageViewController.swift in Sources */,
-				E2255A372C0FA88400C6F3AD /* FirebaseCrashlyticsService.swift in Sources */,
 				E421783C1CC6E1F300815B41 /* String+AIC.swift in Sources */,
 				E407F9E21C9A561E00E285B4 /* AudioPlayerView.swift in Sources */,
 				E4F519C71C87B2F200226188 /* Helpers.swift in Sources */,
@@ -1470,7 +1471,6 @@
 				29B9B58F1FD0A3FF0095FE52 /* SeeAllViewController.swift in Sources */,
 				2941CE7A1FE08EF400B7CCEE /* CardTitleView.swift in Sources */,
 				2915B0F2202CA08B00DEBB03 /* LanguageSelectorView.swift in Sources */,
-				E2C6EE242BFD762B00AC45F8 /* AnalyticsPropertyType.swift in Sources */,
 				E47A971A1CF262760041D0A6 /* AICTooltipModel.swift in Sources */,
 				294C0B53201A76F700F2ABB1 /* MapObjectAnnotation.swift in Sources */,
 				29E003F1204967A600E1D305 /* MapAnnotation.swift in Sources */,
@@ -1485,7 +1485,6 @@
 				29C7D0C9202532930015984B /* AudioPlayerNavigationController.swift in Sources */,
 				294C0B5F201A76F700F2ABB1 /* VisibleMapRegionDelegate.swift in Sources */,
 				294C0B4D201A76F700F2ABB1 /* MapTextAnnotationView.swift in Sources */,
-				E203C0862C1A3B430055F105 /* DataParserCrashlyticsReport.swift in Sources */,
 				294C0B25201A756900F2ABB1 /* MapNavigationController.swift in Sources */,
 				29A67F852027752E003C630A /* AudioPlayerSlider.swift in Sources */,
 				2986A58C1FBCD38C00029E74 /* HomeNavigationController.swift in Sources */,
@@ -1527,12 +1526,12 @@
 				293127811FDF0EC5008BFAB1 /* ContentButtonCell.swift in Sources */,
 				294C0B21201A52BC00F2ABB1 /* EventContentCell.swift in Sources */,
 				3099149B23A8385E00E32ACE /* InfoBuyTicketsView.swift in Sources */,
-				E2255A592C10A06400C6F3AD /* CrashlyticsService.swift in Sources */,
 				E4223CE51CC7FE6600503D43 /* MemberDataManager.swift in Sources */,
 				2941CE7C1FE0928D00B7CCEE /* TourContentCell.swift in Sources */,
 				E20B1C0829D525A90095E59C /* MapPointOfInterestType.swift in Sources */,
 				29C7D0D220260AD50015984B /* AudioInfoViewController.swift in Sources */,
 				2975A053203F2E120014017C /* TooltipViewController.swift in Sources */,
+				E2C3486D2C2345E0007392BB /* AnalyticsPropertyType.swift in Sources */,
 				29A67F872027D74B003C630A /* AudioInfoSectionView.swift in Sources */,
 				29D6921A1FE0E92000B61286 /* SeeAllExhibitionCell.swift in Sources */,
 				E260C3B02B751728004911C4 /* Bundle+ApplicationInfo.swift in Sources */,
@@ -1541,11 +1540,10 @@
 				E260C3B52B762B74004911C4 /* ConfigurationResources.swift in Sources */,
 				2986A58A1FBCBD8B00029E74 /* SectionNavigationController.swift in Sources */,
 				E42677E31CC558060046BB27 /* AICButton.swift in Sources */,
-				E2255A5D2C10EDED00C6F3AD /* CrashlyticsProperty.swift in Sources */,
+				E2C348682C2345E0007392BB /* CrashlyticsProperty.swift in Sources */,
 				29E003ED204858F900E1D305 /* MapRestaurantContentView.swift in Sources */,
 				E4F7AF971CFB673900524F87 /* AICMapFloorModel.swift in Sources */,
 				29B9B5931FD0A7670095FE52 /* SeeAllTourCell.swift in Sources */,
-				E2C6EE272BFD769C00AC45F8 /* AnalyticsProperty.swift in Sources */,
 				29E003EB2048561F00E1D305 /* RestaurantPageViewController.swift in Sources */,
 				29A7BD011FBF87D900FD8639 /* InfoViewController.swift in Sources */,
 				E47A972F1CF3EE140041D0A6 /* LoadingViewController.swift in Sources */,
@@ -1562,8 +1560,10 @@
 				E47A97151CEFBC150041D0A6 /* AppDataManager.swift in Sources */,
 				0E2D15591DA8134200D06A4A /* AICMemberCardModel.swift in Sources */,
 				2902E0B01FC47FF60070C78C /* InfoButton.swift in Sources */,
+				E2C3486A2C2345E0007392BB /* CrashlyticsService.swift in Sources */,
 				29BB93131FAA6A400034AEB4 /* UIDevice+Model.swift in Sources */,
 				290A0FB42044D105000CDA8F /* TooltipPopupPageView.swift in Sources */,
+				E2C348672C2345E0007392BB /* CrashlyticsManager.swift in Sources */,
 				2975A057203F61250014017C /* MapExhibitionAnnotationView.swift in Sources */,
 				E4D159351CBAE3E900536B4D /* AICTourModel.swift in Sources */,
 				29824BCB200D867C003B6DB5 /* ContentCardNavigationController.swift in Sources */,
