@@ -203,10 +203,12 @@ extension Common {
         static let totalFloors = 4
 
         static var stringForFloorNumber: [Int: String] {
-            return [0: "map_lower_level".localized(using: "Map"),
-                    1: "map_first_level".localized(using: "Map"),
-                    2: "map_second_level".localized(using: "Map"),
-                    3: "map_third_level".localized(using: "Map")]
+            return [
+                0: "map_lower_level".localized(using: "Map"),
+                1: "map_first_level".localized(using: "Map"),
+                2: "map_second_level".localized(using: "Map"),
+                3: "map_third_level".localized(using: "Map")
+            ]
         }
 
         // File directories
@@ -215,18 +217,22 @@ extension Common {
         static let amenityLandmarkSVGFileName = "map_amenities_landmarks"
 
         // Map SVG File
-        static let mapSVGFileURL = Bundle.main.url(forResource: Common.Map.amenityLandmarkSVGFileName,
-                                                   withExtension: "svg",
-                                                   subdirectory: Common.Map.mapsDirectory)
+        static let mapSVGFileURL = Bundle.main.url(
+            forResource: Common.Map.amenityLandmarkSVGFileName,
+            withExtension: "svg",
+            subdirectory: Common.Map.mapsDirectory
+        )
 
         // Anchor pair for mapping GeoCoords to PDF Coords
         static let pdfSize = CGSize(width: 2400, height: 2400)
-        static let anchor1 = GeoAnchor(latitudeLongitudeCoordinate: CLLocationCoordinate2DMake(41.88002009571711, -87.62398928403854),
-                                       pdfPoint: CGPoint(x: 855.955, y: pdfSize.height-1061.635)
+        static let anchor1 = GeoAnchor(
+            latitudeLongitudeCoordinate: CLLocationCoordinate2DMake(41.88002009571711, -87.62398928403854),
+            pdfPoint: CGPoint(x: 855.955, y: pdfSize.height-1061.635)
         )
 
-        static let anchor2 = GeoAnchor(latitudeLongitudeCoordinate: CLLocationCoordinate2DMake(41.8800240897643, -87.62334823608397),
-                                       pdfPoint: CGPoint(x: 1011.94, y: pdfSize.height-1061.635)
+        static let anchor2 = GeoAnchor(
+            latitudeLongitudeCoordinate: CLLocationCoordinate2DMake(41.8800240897643, -87.62334823608397),
+            pdfPoint: CGPoint(x: 1011.94, y: pdfSize.height-1061.635)
         )
 
         static let anchorPair = GeoAnchorPair(fromAnchor: anchor1, toAnchor: anchor2)
@@ -259,6 +265,36 @@ extension Common {
         static let thumbHolderMargin: CGFloat = 2
     }
 
+}
+
+// MARK: - Entrance Lion Statue
+extension Common {
+    enum EntranceLionStatue {
+        case left, right
+
+        var coordinate: CLLocationCoordinate2D {
+            switch self {
+            case .left:
+                return CLLocationCoordinate2DMake(41.879678006591391, -87.624091248446064)
+            case .right:
+                return CLLocationCoordinate2DMake(41.879491568164525, -87.624089977901931)
+            }
+        }
+
+        var imageName: String {
+            switch self {
+            case .left: "Lion1"
+            case .right: "Lion2"
+            }
+        }
+
+        var identifier: String {
+            switch self {
+            case .left: "Lion1"
+            case .right: "Lion2"
+            }
+        }
+    }
 }
 
 // MARK: - Info

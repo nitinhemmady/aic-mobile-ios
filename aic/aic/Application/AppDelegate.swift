@@ -11,27 +11,32 @@ import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-	var window: UIWindow?
-  private var deepLinkString: String?
-  private var statusBarHeight: CGFloat = 0
+    var window: UIWindow?
+    private var deepLinkString: String?
+    private var statusBarHeight: CGFloat = 0
 
-	func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		AICAnalytics.configure()
-
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        setupAnalytics()
 		// Set initial state for location tracking
-    let locationManager = CLLocationManager()
+        let locationManager = CLLocationManager()
 		Common.Location.hasLoggedOnsite = false
 		Common.Location.previousOnSiteState = nil
 		Common.Location.previousAuthorizationStatus = locationManager.authorizationStatus
     
 		if Common.Location.previousAuthorizationStatus == .denied {
-			AICAnalytics.sendLocationDetectedEvent(location: AICAnalytics.LocationState.Disabled)
-			Common.Location.hasLoggedOnsite = true
-		}
-
-		// Turn off caching
-		let sharedCache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+            AICAnalytics.sendLocationDetectedEvent(location: AICAnalytics.LocationState.Disabled)
+            Common.Location.hasLoggedOnsite = true
+        }
+        
+        // Turn off caching
+        let sharedCache = URLCache(
+            memoryCapacity: 0,
+            diskCapacity: 0,
+            diskPath: nil
+        )
 		URLCache.shared = sharedCache
 
 		determineStatusBarVisibility()
@@ -39,9 +44,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		#if RENTAL
 		registerForAppRestartTomorrowMorning()
 		#endif
-
 		return true
 	}
+
+    private func setupAnalytics() {
+        AICAnalytics.configure(properties: [
+            AnalyticsProperty.make(by: .appLanguage),
+            AnalyticsProperty.make(by: .deviceLanguage),
+            AnalyticsProperty.make(by: .membership)
+        ])
+    }
 
 	func registerForAppRestartTomorrowMorning() {
 		guard let configDictionary = UserDefaults.standard.object(forKey: Common.UserDefaults.configurationDictionaryUserDefaultKey) as? NSDictionary else {
@@ -90,19 +102,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		RunLoop.main.add(timer, forMode: .common)
 	}
 
-	@objc func resetEnterpriseApp() {
-		exit(0)
-	}
+    @objc 
+    func resetEnterpriseApp() {
+        exit(0)
+    }
 
-	func determineStatusBarVisibility() {
-    setupStatusBarHeight()
+    func determineStatusBarVisibility() {
+        setupStatusBarHeight()
 
-		DispatchQueue.main.async { [weak self] in
-      guard let self else { return }
-      // Hide when in-call or wifi hotspot are present
-      Common.Layout.showStatusBar = (self.statusBarHeight <= 20)
-		}
-	}
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            // Hide when in-call or wifi hotspot are present
+            Common.Layout.showStatusBar = (self.statusBarHeight <= 20)
+        }
+    }
 
   func setupStatusBarHeight() {
     DispatchQueue.main.async { [weak self] in

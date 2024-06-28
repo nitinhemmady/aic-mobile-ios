@@ -11,19 +11,29 @@ import Alamofire
 
 protocol SearchDataManagerDelegate: AnyObject {
 	func searchDataDidFinishLoading(autocompleteStrings: [String])
-	func searchDataDidFinishLoading(artworks: [AICSearchedArtworkModel], tours: [AICTourModel], exhibitions: [AICExhibitionModel])
+    func searchDataDidFinishLoading(
+        artworks: [AICSearchedArtworkModel],
+        tours: [AICTourModel],
+        exhibitions: [AICExhibitionModel]
+    )
 	func searchDataFailure(filter: Common.Search.Filter)
 }
 
-class SearchDataManager: NSObject {
+final class SearchDataManager: NSObject {
 	static let sharedInstance = SearchDataManager()
 
 	weak var delegate: SearchDataManagerDelegate?
-
-	private let dataParser = AppDataParser()
-
-	private var loadFailure: Bool = false
-
+    private let dataParser = AppDataParser(
+        crashlyticsManager: CrashlyticsManager(
+            service: FirebaseCrashlyticsService(),
+            properties: [
+                AnalyticsProperty.make(by: .appLanguage),
+                AnalyticsProperty.make(by: .deviceLanguage),
+                AnalyticsProperty.make(by: .membership)
+            ]
+        )
+    )
+	private var loadFailure = false
 	private var autocompleteRequest: DataRequest?
 	private var toursRequest: DataRequest?
 	private var artworksRequest: DataRequest?

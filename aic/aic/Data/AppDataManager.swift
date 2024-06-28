@@ -8,86 +8,53 @@ import Alamofire
 
 @objc protocol AppDataManagerDelegate: AnyObject {
 	func downloadProgress(withPctCompleted: Float)
-	@objc optional func didFinishLoadingData()
 	func downloadFailure(withMessage: String)
+    @objc optional func didFinishLoadingData()
 }
 
-class AppDataManager {
+final class AppDataManager {
 	static let sharedInstance = AppDataManager()
 
 	weak var delegate: AppDataManagerDelegate?
-
-	private (set) var app: AICAppDataModel! = nil
-	private (set) var exhibitions: [AICExhibitionModel] = []
-	private (set) var events: [AICEventModel] = []
-
-	private let dataParser = AppDataParser()
+	private(set) var app: AICAppDataModel! = nil
+	private(set) var exhibitions = [AICExhibitionModel]()
+	private(set) var events = [AICEventModel]()
 
 	private var dataFilesRetrieved = 0
-	var pctComplete: Float = 0.0
+	var pctComplete = Float(0)
 
 	private var appData: Data?
-	private var numberMapFloorsLoaded: Int = 0
-	var mapFloorURLs: [Int: URL] = [:] // local path to map floor pdf files
+	private var numberMapFloorsLoaded = 0
+	var mapFloorURLs = [Int: URL]() // local path to map floor pdf files
 
-	private (set) var isLoaded = false
+	private(set) var isLoaded = false
 	private var loadFailure = false
+    private let dataParser: AppDataParser
+    private let configuration: ConfigurationResources
+
+    private init() {
+        dataParser = AppDataParser(
+            crashlyticsManager: CrashlyticsManager(
+                service: FirebaseCrashlyticsService(),
+                properties: [
+                    AnalyticsProperty.make(by: .appLanguage),
+                    AnalyticsProperty.make(by: .deviceLanguage),
+                    AnalyticsProperty.make(by: .membership)
+                ]
+            )
+        )
+
+        configuration = ConfigurationResources(
+            plistFile: PlistFile(
+                name: "Config"
+            )
+        )
+    }
 
 	func load(forceAppDataDownload: Bool = false) {
-		var downloadDataEvenIfCached: Bool = forceAppDataDownload
-
-		// Save software version number
-		if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
-
-			// Force AppData download if the last software version is older
-			if downloadDataEvenIfCached == false {
-				if let lastVersion = UserDefaults.standard.object(forKey: Common.UserDefaults.lastVersionNumberKey) as? String {
-					if version.compare(lastVersion, options: .numeric) == .orderedDescending {
-						downloadDataEvenIfCached = true
-					}
-				} else {
-					downloadDataEvenIfCached = true
-				}
-			}
-
-			UserDefaults.standard.set(version, forKey: Common.UserDefaults.lastVersionNumberKey)
-		}
-
-		if let url = Bundle.main.url(forResource: "Config", withExtension: "plist") {
-			do {
-				let data = try Data(contentsOf: url)
-				guard let config = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
-					return
-				}
-
-				if let testing = config["Testing"] as! [String: Any]? {
-
-					if let printDataErrors = testing["printDataErrors"] {
-						Common.Testing.printDataErrors = printDataErrors as! Bool
-					}
-
-				}
-
-				if let dataConstants = config["DataConstants"] as! [String: Any]? {
-
-					if let appDataJSON = dataConstants["appDataJSON"] {
-						Common.Constants.appDataJSON = appDataJSON as! String
-					}
-
-					if let memberCardSOAPRequestURL = dataConstants["memberCardSOAPRequestURL"] as? String {
-						Common.Constants.memberCardSOAPRequestURL = memberCardSOAPRequestURL
-					}
-
-					if let ignoreOverrideImageCrop = dataConstants["ignoreOverrideImageCrop"] {
-						Common.Constants.ignoreOverrideImageCrop = ignoreOverrideImageCrop as! Bool
-					}
-
-				}
-
-			} catch {
-				debugPrint(error)
-			}
-		}
+        var downloadDataEvenIfCached = forceAppDataDownload
+        validateAppVersionNumber(&downloadDataEvenIfCached)
+        setupCommonConfigurations()
 
 		loadFailure = false
 		dataFilesRetrieved = 0
@@ -95,30 +62,60 @@ class AppDataManager {
 		appData = nil
 		mapFloorURLs = [:]
 		numberMapFloorsLoaded = 0
-		lastModifiedStringsMatch(atURL: Common.Constants.appDataJSON,
-                             userDefaultsLastModifiedKey: Common.UserDefaults.onDiskAppDataLastModifiedStringKey) { stringsMatch in
+        lastModifiedStringsMatch(
+            atURL: Common.Constants.appDataJSON,
+            userDefaultsLastModifiedKey: Common.UserDefaults.onDiskAppDataLastModifiedStringKey
+        ) { [weak self] stringsMatch in
+            guard let self else { return }
+
 			if !stringsMatch || downloadDataEvenIfCached {
 				//Try to download new app data
 				//If there is an issue with the server or reachability
 				//then fall back to the older local data, unless no local data
 				//exists, then fail.
-				self.downloadAppData()
+				downloadAppData()
 			} else {
 				//If the appData json that is on disk is the same as
 				//the server provided json then just use our local data
-				self.appData = self.loadFromDisk(fileName: Common.Constants.localAppDataFilename)
+				appData = loadFromDisk(fileName: Common.Constants.localAppDataFilename)
 
 				//We have good cached app data, continue on
-				self.loadAppData()
+				loadAppData()
 			}
-
 		}
 	}
+
+    private func validateAppVersionNumber(_ downloadDataEvenIfCached: inout Bool) {
+        let currentVersion = Bundle.versionNumber
+        // Force AppData download if the last software version is older
+        if !downloadDataEvenIfCached {
+            if let lastVersion = UserDefaults.standard.object(forKey: Common.UserDefaults.lastVersionNumberKey) as? String {
+                if currentVersion.compare(lastVersion, options: .numeric) == .orderedDescending {
+                    downloadDataEvenIfCached = true
+                }
+            } else {
+                downloadDataEvenIfCached = true
+            }
+        }
+        UserDefaults.standard.set(currentVersion, forKey: Common.UserDefaults.lastVersionNumberKey)
+    }
+
+    private func setupCommonConfigurations() {
+        Common.Testing.printDataErrors = configuration.enableErrorConsoleOutput()
+        Common.Constants.ignoreOverrideImageCrop = configuration.enableIgnoreOverrideImageCrop()
+
+        if let appDataURL = configuration.appDataURL() {
+            Common.Constants.appDataJSON = appDataURL
+        }
+
+        if let memberCardSOAPRequestURL = configuration.memberCardSOAPRequestURL() {
+            Common.Constants.memberCardSOAPRequestURL = memberCardSOAPRequestURL
+        }
+    }
 
 	// MARK: Download App Data
 
 	private func downloadAppData() {
-		// App Data
 		AF.request(Common.Constants.appDataJSON)
 			.validate()
 			.responseData { response in
@@ -131,10 +128,12 @@ class AppDataManager {
 						//Save the data to disk in case the server is down at some point in the future [JB]
 						let headersDictionary = response.response?.allHeaderFields
 						if let lastModifiedString = headersDictionary?["Last-Modified"] as? String {
-							self.writeDataToDisk(data: value,
-												 lastModifiedString: lastModifiedString,
-												 lastModifiedUserDefaultsKey: Common.UserDefaults.onDiskAppDataLastModifiedStringKey,
-												 fileName: Common.Constants.localAppDataFilename)
+                            self.writeDataToDisk(
+                                data: value,
+                                lastModifiedString: lastModifiedString,
+                                lastModifiedUserDefaultsKey: Common.UserDefaults.onDiskAppDataLastModifiedStringKey,
+                                fileName: Common.Constants.localAppDataFilename
+                            )
 						}
 					case .failure:
 						// Load cached app data from disk
@@ -150,7 +149,7 @@ class AppDataManager {
 		if let appData = self.appData {
 			// We have good app data, continue on
 			updateDownloadProgress()
-			downloadMapFloorsPdfs(appData: appData)
+			downloadMapFloorsPDFs(appData: appData)
 
 			fetchMemberCard()
 		} else {
@@ -159,9 +158,9 @@ class AppDataManager {
 		}
 	}
 
-	// MARK: Download Map Floors Pdfs
+	// MARK: Download Map Floors PDFs
 
-	private func downloadMapFloorsPdfs(appData: Data) {
+	private func downloadMapFloorsPDFs(appData: Data) {
 		// URLs to download Floor Pdfs
 		let floorsURLs = dataParser.parseMapFloorsURLs(fromAppData: appData)
 
@@ -670,30 +669,40 @@ class AppDataManager {
 
 	// MARK: Cached App Data Methods
 
-	private func lastModifiedStringsMatch(atURL url: URLConvertible, userDefaultsLastModifiedKey key: String, completion: @escaping (Bool) -> Void) {
-		//Make a request to check the appData Last-Modified header
-		AF.request(url, method: .head, parameters: Parameters(), encoding: URLEncoding.default, headers: HTTPHeaders())
-			.validate()
-			.responseData { (response) in
-				// If we can't read the headers, something is wrong, try downloading and failover from there
-				guard let headerDictionary = response.response?.allHeaderFields as? [String: Any] else {
-					completion(false)
-					return
-				}
+    private func lastModifiedStringsMatch(
+        atURL url: URLConvertible,
+        userDefaultsLastModifiedKey key: String,
+        completion: @escaping (Bool) -> Void
+    ) {
+        //Make a request to check the appData Last-Modified header
+        AF.request(
+            url,
+            method: .head,
+            parameters: Parameters(),
+            encoding: URLEncoding.default,
+            headers: HTTPHeaders()
+        )
+        .validate()
+        .responseData { response in
+            // If we can't read the headers, something is wrong, try downloading and failover from there
+            guard let headerDictionary = response.response?.allHeaderFields as? [String: Any] else {
+                completion(false)
+                return
+            }
 
-				guard let lastModifiedString = headerDictionary["Last-Modified"] as? String else {
-					completion(false)
-					return
-				}
+            guard let lastModifiedString = headerDictionary["Last-Modified"] as? String else {
+                completion(false)
+                return
+            }
 
-				guard let localLastModifiedString = UserDefaults.standard.object(forKey: key) as? String else {
-					completion(false)
-					return
-				}
+            guard let localLastModifiedString = UserDefaults.standard.object(forKey: key) as? String else {
+                completion(false)
+                return
+            }
 
-				completion(localLastModifiedString == lastModifiedString)
-		}
-	}
+            completion(localLastModifiedString == lastModifiedString)
+        }
+    }
 
 	private func writeDataToDisk(data: Data, fileName: String) {
 		guard let fileURL = self.localFileURL(forFileName: fileName) else { return }
@@ -704,7 +713,12 @@ class AppDataManager {
 		}
 	}
 
-	private func writeDataToDisk(data: Data, lastModifiedString: String, lastModifiedUserDefaultsKey: String, fileName: String) {
+    private func writeDataToDisk(
+        data: Data,
+        lastModifiedString: String,
+        lastModifiedUserDefaultsKey: String,
+        fileName: String
+    ) {
 		writeDataToDisk(data: data, fileName: fileName)
 		UserDefaults.standard.set(lastModifiedString, forKey: lastModifiedUserDefaultsKey)
 	}

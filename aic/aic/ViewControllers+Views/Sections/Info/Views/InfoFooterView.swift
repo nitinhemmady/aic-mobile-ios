@@ -25,11 +25,9 @@ class InfoFooterView: UIView {
 
 		bloombergCreditsImageView.image = #imageLiteral(resourceName: "bloombergLogo")
 
-		let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
-		let version = nsObject as! String
-
-		let versionPlusPotionLink = "Version \(version) Designed by Potion"
-		let potionCreditsAttrString = NSMutableAttributedString(string: versionPlusPotionLink)
+        let localizedVersion = "info_version".localizedFormat(arguments: Bundle.versionNumber, using: "Info")
+        let localizedPotionCredits = localizedVersion + " " + "info_designed_by".localized(using: "Info")
+		let potionCreditsAttrString = NSMutableAttributedString(string: localizedPotionCredits)
 		let potionUrl = URL(string: Common.Info.potionURL)!
 		potionCreditsAttrString.addAttributes([.link: potionUrl], range: NSRange(location: 0, length: potionCreditsAttrString.string.count))
 

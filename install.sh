@@ -96,5 +96,5 @@ if [ ! -f "$DIR_AIC/GoogleService-Info.plist" ]; then
 
 fi
 
-# Open the workspace in Xcode
-cd "$DIR_APP" && open aic.xcworkspace
+# Open the project in Xcode
+cd "$DIR_APP" && open aic.xcodeproj
